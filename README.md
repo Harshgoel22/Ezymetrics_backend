@@ -20,7 +20,7 @@ This project provides an ETL (Extract, Transform, Load) workflow along with repo
 
 ## Environment Variables
 Make sure to configure the following variables in your .env file:
-  - MONGODB_URL=<your-mongodb-connection-string>
+  - MONGODB_URL = your-mongodb-connection-string
   - MAIL_HOST = your-mail-host
   - MAIL_USER = your-mail-user
   - MAIL_PASS = your-mail-password
@@ -39,3 +39,49 @@ Make sure to configure the following variables in your .env file:
     - Converts the report schema into a PDF and provides a download option.
 5. generateCSV:
     - Converts the report schema into a CSV and provides a download option.
+
+## Routes
+1. GET /storage/fetchData:
+   - Fetches the data from the external source.
+   - URL: https://localhost:300/storage/fetchData
+2. POST /storage/sendDataToDb:
+    - Sends new data to the MongoDB database.
+    - URL: https://localhost:300/storage/sendDataToDb
+3. POST /storage/generateInsights:
+    - Generates a report with the total number of leads grouped by city and campaignId.
+    - URL: https://localhost:300/storage/generateInsights
+4. POST /reporting/generatePDF:
+    - Generates a PDF report from the schema and allows it to be downloaded.
+    - URL: https://localhost:300/reporting/generatePDF
+5. POST /reporting/generateCSV:
+    - Generates a CSV report from the schema and allows it to be downloaded.
+    - URL: https://localhost:300/reporting/generateCSV
+
+## Utility Function
+1. mailSender(email, title, body):
+    - Sends an email when either the PDF or CSV report is downloaded successfully.
+    - Parameters:
+        - email: Recipient email address
+        - title: Email subject
+        - body: Email content
+    - Usage: Notify users of successful report generation via email.
+  
+## How to Start
+1. Make sure MongoDB is running and accessible through the connection string in the .env file.
+2. Run the following command to start the server:
+    - node index.js
+3. If you are using nodemon (for auto-restarts during development), start with:
+    - npx nodemon index.js
+4. The server will start at:
+    - http://localhost:300/
+
+## Dependencies
+1. The package.json contains the following dependencies:
+    - "express": "^4.18.2",
+    - "mongoose": "^7.5.0",
+    - "fs": "0.0.1-security",
+    - "nodemailer": "^6.9.3",
+    - "csv-writer": "^1.6.0",
+    - "pdfkit": "^0.12.1",
+    - "path": "^0.12.7",
+    - "dotenv": "^16.3.1"
