@@ -1,0 +1,22 @@
+[
+  { 
+    "campaign_id": 1001,
+    "name": "Spring Sale",
+    "budget": 8000 
+  },
+  { 
+    "campaign_id": 1002,
+    "name": "Winter Promotion",
+    "budget": 6000 
+  },
+	{ 
+    "campaign_id": 1003,
+    "name": "Diwali Sale",
+    "budget": 10000 
+  },
+  { 
+    "campaign_id": 1004,
+    "name": "Big Billions Sale",
+    "budget": 30000 
+  }
+]
