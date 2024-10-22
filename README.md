@@ -69,9 +69,9 @@ Make sure to configure the following variables in your .env file:
 ## How to Start
 1. Make sure MongoDB is running and accessible through the connection string in the .env file.
 2. Run the following command to start the server:
-    - node index.js
+    - node app.js
 3. If you are using nodemon (for auto-restarts during development), start with:
-    - npx nodemon index.js
+    - npx nodemon app.js
 4. The server will start at:
     - http://localhost:300/
 
